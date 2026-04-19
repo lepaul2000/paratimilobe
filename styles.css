@@ -1,0 +1,613 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fad7e1 0%, #f8c5d4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    background: linear-gradient(to bottom, #fae8ef 0%, #fad7e1 100%);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(233, 30, 99, 0.2);
+    text-align: center;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: 28px;
+    color: #393D49;
+    margin-bottom: 15px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.question {
+    margin: 30px 0;
+}
+
+.question h2 {
+    font-size: 32px;
+    color: #E91E63;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-image {
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover span {
+    transform: scale(1.1);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #1E90FF 0%, #4169E1 100%);
+    color: white;
+}
+
+.btn-yes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 143, 57, 0.4);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%);
+    color: white;
+}
+
+.btn-no:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(254, 0, 0, 0.4);
+}
+
+.response-section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.response-content {
+    text-align: center;
+}
+
+.response-message {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.message-yes {
+    color: #E91E63;
+    background: rgba(233, 30, 99, 0.1);
+}
+
+.message-no {
+    color: #FE0000;
+    background: rgba(254, 0, 0, 0.1);
+}
+
+.response-image {
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 20px;
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reset-button {
+    margin-top: 30px;
+}
+
+.reset-button .btn {
+    background: linear-gradient(135deg, #9C27B0 0%, #B366CC 100%);
+    color: white;
+}
+
+.reset-button .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4);
+}
+
+/* Sección de álbum */
+.album-section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.album-title {
+    font-size: 28px;
+    color: #393D49;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.upload-area {
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.1) 0%, rgba(65, 105, 225, 0.1) 100%);
+    border: 2px dashed #1E90FF;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    background: linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(65, 105, 225, 0.2) 100%);
+    border-color: #4169E1;
+}
+
+.btn-upload {
+    background: linear-gradient(135deg, #1E90FF 0%, #4169E1 100%);
+    color: white;
+}
+
+.btn-upload:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.4);
+}
+
+.upload-hint {
+    color: #999;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+    min-height: 100px;
+}
+
+.photo-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: photoPopIn 0.4s ease-out;
+    height: 120px;
+    cursor: grab;
+}
+
+.photo-card.dragging {
+    opacity: 0.5;
+}
+
+.photo-card.drag-over {
+    outline: 2px dashed rgba(255, 255, 255, 0.8);
+}
+
+@keyframes photoPopIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 51, 51, 0.95);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.photo-delete:hover {
+    background: rgba(255, 0, 0, 1);
+    transform: scale(1.05);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1;
+}
+
+.delete-btn {
+    background: #FF3333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background: #FF0000;
+}
+
+.view-btn, .move-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 4px;
+    min-width: 40px;
+}
+
+.view-btn:hover, .move-btn:hover {
+    background: #45a049;
+}
+
+.move-btn {
+    background: #008CBA;
+}
+
+.move-btn:hover {
+    background: #007bb5;
+}
+
+.empty-gallery {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-size: 18px;
+}
+
+.album-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .question h2 {
+        font-size: 24px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .main-image {
+        max-width: 300px;
+    }
+
+    .response-image {
+        max-width: 300px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .photo-card {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .question h2 {
+        font-size: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .main-image {
+        max-width: 250px;
+    }
+
+    .response-image {
+        max-width: 250px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+    }
+    
+    .photo-card {
+        height: 80px;
+    }
+
+    .album-actions {
+        flex-direction: column;
+    }
+
+    .album-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Estilos del carrusel modal */
+.carousel-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-content {
+    position: relative;
+    max-width: 85vw;
+    max-height: 85vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carousel-content img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.carousel-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 48px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: -80px;
+}
+
+.carousel-next {
+    right: -80px;
+}
+
+@media (max-width: 768px) {
+    .carousel-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .carousel-close {
+        top: -40px;
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .carousel-nav {
+        width: 50px;
+        height: 50px;
+        font-size: 36px;
+    }
+
+    .carousel-prev {
+        left: -60px;
+    }
+
+    .carousel-next {
+        right: -60px;
+    }
+}
