@@ -101,15 +101,24 @@ function toggleMusic() {
 
 // Firebase Storage functions
 async function uploadPhoto(file, index) {
-    const storageRef = ref(window.firebaseStorage, `album-photos/${Date.now()}_${index}_${file.name}`);
-    const snapshot = await uploadBytes(storageRef, file);
-    const downloadURL = await getDownloadURL(snapshot.ref);
-    return {
-        id: snapshot.ref.name,
-        url: downloadURL,
-        name: file.name,
-        order: Date.now() + index
-    };
+    try {
+        console.log('📤 Iniciando subida de:', file.name);
+        const storageRef = ref(window.firebaseStorage, `album-photos/${Date.now()}_${index}_${file.name}`);
+        console.log('📍 Referencia creada:', storageRef.fullPath);
+        const snapshot = await uploadBytes(storageRef, file);
+        console.log('✅ Foto subida:', snapshot.ref.fullPath);
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        console.log('🔗 URL obtenida');
+        return {
+            id: snapshot.ref.name,
+            url: downloadURL,
+            name: file.name,
+            order: Date.now() + index
+        };
+    } catch (error) {
+        console.error('❌ Error en uploadPhoto:', error.code, error.message);
+        throw error;
+    }
 }
 
 async function getAllPhotos() {
@@ -286,7 +295,15 @@ function nextPhoto() {
 document.addEventListener('DOMContentLoaded', async function() {
     // Esperar a que Firebase se inicialice
     const checkFirebase = () => {
+        console.log('Checking Firebase...', {
+            firebaseApp: !!window.firebaseApp,
+            firebaseStorage: !!window.firebaseStorage,
+            ref: !!window.ref,
+            uploadBytes: !!window.uploadBytes
+        });
+        
         if (window.firebaseStorage) {
+            console.log('✅ Firebase Storage listo');
             loadPhotos();
         } else {
             setTimeout(checkFirebase, 100);
